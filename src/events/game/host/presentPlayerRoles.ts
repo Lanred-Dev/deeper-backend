@@ -5,6 +5,7 @@ import startGame from "./startGame";
 export default function presentPlayerRoles(socketServer: Server, hostSocket: Socket) {
     const playersConfirmed: Array<string> = [];
 
+    hostSocket.emit("gameEvent-host", "presentPlayerRoles");
     lobbies[hostSocket.data.lobby.code].players.forEach(({ socketID, role }: player) => {
         const socket: Socket = socketServer.sockets.sockets.get(socketID)!;
         socket.emit("gameEvent", "presentRole", role);
