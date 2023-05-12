@@ -14,6 +14,7 @@ export default function createLobby(callback: Function) {
             isStarted: false,
             state: "preGame",
             votes: {},
+            objectives: {},
         },
     };
 
